@@ -1,0 +1,28 @@
+<script lang="ts">
+    export default{
+        data(){
+            return{
+                count:0
+            }
+        },
+        methods:{
+            increse(){
+                this.count+=1;
+            },
+            decrese(){
+                this.count-=1;
+            }
+        },
+        mounted(){ // solo se ejecuta al inicio
+            console.log("Mensaje de inicio")
+        }
+    }
+</script>
+
+<template>
+    <h1>Este es un ejemplo con Api Composition</h1>
+    <h1>Hola Mundo {{ count }}</h1>
+    <button @click="increse">
+        Aumentar
+    </button>
+</template>
