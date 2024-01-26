@@ -41,23 +41,12 @@
 </script>
 
 <template>
-
-        <v-container>
-
-            <v-row>
-                <v-col v-for="p in products" cols="3">
-                    <ProductCard :product="p"
-                        v-on:addProduct="onAddProduct(p.productId)"/>
-                        <!-- @addProduct="onAddProduct(p.productId)"/> manera abreviada -->
-                </v-col>
-            </v-row>
-
-
-            <ShoppingCartDetail :details="details"/>
-
-            
-
-
-        </v-container>
-
+    <v-row>
+        <v-col v-for="p in products" cols="3">
+            <ProductCard :product="p"
+                v-on:addProduct="onAddProduct(p.productId)"/>
+                <!-- @addProduct="onAddProduct(p.productId)"/> manera abreviada -->
+        </v-col>
+    </v-row>
+    <ShoppingCartDetail :details="details"/>
 </template>

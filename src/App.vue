@@ -13,12 +13,6 @@ import { RouterLink, RouterView } from 'vue-router'
         size="32"
         ></v-avatar>
         
-        
-        
-       
-        
-        
-
 
         <RouterLink to="/" custom v-slot="{navigate}">
           <v-btn variant="text" @click = "navigate">Home</v-btn>
@@ -49,7 +43,9 @@ import { RouterLink, RouterView } from 'vue-router'
     </v-app-bar>
 
     <v-main class="bg-grey-lighten-3">
-      <RouterView />
+      <v-container>
+        <RouterView />
+      </v-container>
     </v-main>
 
   </v-app>
