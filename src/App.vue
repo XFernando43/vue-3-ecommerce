@@ -3,15 +3,58 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <header>
-    <div class="wrapper">
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/Cart">Cart</RouterLink>
-      </nav>
-    </div>
-  </header>
-  <RouterView />
+  
+  <v-app>
+    <v-app-bar flat>
+      <v-container class="mx-auto d-flex align-center justify-center">
+        <v-avatar
+        class="me-4 "
+        color="grey-darken-1"
+        size="32"
+        ></v-avatar>
+        
+        
+        
+       
+        
+        
+
+
+        <RouterLink to="/" custom v-slot="{navigate}">
+          <v-btn variant="text" @click = "navigate">Home</v-btn>
+        </RouterLink>
+
+        <RouterLink to="/Cart" custom v-slot="{navigate}">
+          <v-btn variant="text" @click = "navigate">Cart</v-btn>
+        </RouterLink>
+
+        <RouterLink to="/About" custom v-slot="{navigate}">
+          <v-btn variant="text" @click = "navigate">About</v-btn>
+        </RouterLink>
+
+        <v-spacer></v-spacer>
+        
+        <v-responsive max-width="160">
+          <v-text-field
+          density="compact"
+          flat
+          hide-details
+          label="Search"
+          rounded="lg"
+          single-line
+          variant="solo-filled"
+          ></v-text-field>
+        </v-responsive>
+      </v-container>
+    </v-app-bar>
+
+    <v-main class="bg-grey-lighten-3">
+      <RouterView />
+    </v-main>
+
+  </v-app>
+    
+    
+    
 </template>
 

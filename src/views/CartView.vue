@@ -3,7 +3,7 @@
     export default{
         data(){
             return{
-                
+
             }
         },
         components:{
@@ -13,8 +13,9 @@
 </script>
 
 <template>
-    <h1>HOLA es el cart view</h1>
 
+    
+    <h1>HOLA es el cart view</h1>
     <ProductList></ProductList>
 
 </template>
