@@ -2,7 +2,7 @@
     import type { Product } from '@/models/Product';
     import ShoppingCartDetail from '../../components/Shopping/ShoppingCartDetail.vue';
     import ProductCard from './ProductCard.vue';
-import { useCartStore } from '@/stores/cart';
+    import { useCartStore } from '@/stores/cart';
 
     export default{
         data(){
@@ -11,7 +11,16 @@ import { useCartStore } from '@/stores/cart';
                     {name:"Milanesa", price:1200, productId:1},
                     {name:"Mayonessa", price:1200, productId:2},
                     {name:"Girasol", price:1200, productId:3},
-                    {name:"POP", price:1200, productId:4},
+                    {name:"Monitor", price:1200, productId:5},
+                    {name:"PSP", price:1200, productId:6},
+                    {name:"PSP Vita", price:1200, productId:7},
+                    {name:"Gtx 1650", price:1200, productId:8},
+                    {name:"Laptop Lenovo Ideapad", price:1200, productId:9},
+                    {name:"Laptop Pavilion HP", price:1200, productId:10},
+                    {name:"GtX 4050TI", price:1200, productId:11},
+                    {name:"Laptop Lenovo Ideapad", price:1200, productId:12},
+                    {name:"Laptop Lenovo Ideapad", price:1200, productId:13},
+                    {name:"Laptop Lenovo Ideapad", price:1200, productId:14},
                 ],
                   
             }
@@ -40,5 +49,4 @@ import { useCartStore } from '@/stores/cart';
                 <!-- @addProduct="onAddProduct(p.productId)"/> manera abreviada -->
         </v-col>
     </v-row>
-    <ShoppingCartDetail details/>
 </template>
