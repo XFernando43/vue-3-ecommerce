@@ -1,6 +1,6 @@
 <script lang="ts">
     import { useCartStore } from '@/stores/cart';
-import { RouterLink } from 'vue-router'
+    import { RouterLink } from 'vue-router'
 
     export default{
         data(){
@@ -28,19 +28,18 @@ import { RouterLink } from 'vue-router'
         
 
         <RouterLink to="/" custom v-slot="{navigate}">
-          <v-btn variant="text" @click = "navigate">Home</v-btn>
+          <v-btn prepend-icon="mdi-home-variant" :active="$route.name === 'home'" variant="text" @click = "navigate">Home</v-btn>
         </RouterLink>
 
         <RouterLink to="/Cart" custom v-slot="{navigate}">
-          
           <v-badge :content="itemsCount" :model-value="itemsCount > 0" color="teal-accent-4">
-            <v-btn variant="text" @click = "navigate">Cart</v-btn>
+            <v-btn prepend-icon="mdi-cart" :active="$route.name === 'Cart'" variant="text" @click = "navigate">Cart</v-btn>
           </v-badge>
 
         </RouterLink>
 
         <RouterLink to="/About" custom v-slot="{navigate}">
-          <v-btn variant="text" @click = "navigate">About</v-btn>
+          <v-btn prepend-icon="mdi-information" :active="$route.name === 'About'" variant="text" @click = "navigate">About</v-btn>
         </RouterLink>
 
         <v-spacer></v-spacer>
@@ -60,3 +59,5 @@ import { RouterLink } from 'vue-router'
     </v-app-bar>
 
 </template>
+
+
