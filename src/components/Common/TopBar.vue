@@ -33,8 +33,7 @@ import { RouterLink } from 'vue-router'
 
         <RouterLink to="/Cart" custom v-slot="{navigate}">
           
-          <v-badge :content="itemsCount">
-            <!-- <v-icon icon="$vuetify" size="x-large"></v-icon> -->
+          <v-badge :content="itemsCount" :model-value="itemsCount > 0" color="teal-accent-4">
             <v-btn variant="text" @click = "navigate">Cart</v-btn>
           </v-badge>
 

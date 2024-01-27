@@ -11,9 +11,22 @@ import type { PropType } from 'vue';
         //     }
         // },
         computed:{
+            cartStore(){
+                return useCartStore();
+            },
             details(){
-                const cartStore = useCartStore();
-                return cartStore.details;
+                return this.cartStore.details;
+            }
+        },
+        methods:{
+            decrementQuantity(productId:number){
+                this.cartStore.decrement(productId);
+            },
+            incrementQuantity(productId:number){
+                this.cartStore.increment(productId);
+            },
+            deleteProduct(productId:number){
+                this.cartStore.deleteProduct(productId);
             }
         }
     }
@@ -23,13 +36,14 @@ import type { PropType } from 'vue';
 
     <v-card class="mt-4">
         <v-card-title> Productos agregados al carrito </v-card-title>
-        <!-- <v-card-text> <p>Productos agregados al carrito</p> </v-card-text> -->
-
         <v-list>
             <v-list-item v-for="d in details" :value="d.productId">
                 <v-list-item-title>
                     product:  {{ d.productId }}
-                    quantity:  {{ d.quantity }}
+                    (Qty):  {{ d.quantity }}
+                    <v-btn @Click="decrementQuantity(d.productId)"> - </v-btn>
+                    <v-btn @Click="incrementQuantity(d.productId)"> + </v-btn>
+                    <v-btn @Click="deleteProduct(d.productId)" color="danger"> delete </v-btn>
                 </v-list-item-title>
             
             </v-list-item>
