@@ -1,6 +1,18 @@
-<script setup lang="ts">
+<script lang="ts">
+  import ProductList from '../components/Shopping/ProductList.vue';
+      export default{
+          data(){
+              return{
+
+              }
+          },
+          components:{
+              ProductList
+          }
+
+      }
 </script>
 
 <template>
-  <h1>This is the home view from vue</h1>
+      <ProductList></ProductList>
 </template>

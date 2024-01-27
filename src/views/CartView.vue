@@ -1,19 +1,20 @@
 <script lang="ts">
-    import ProductList from '../components/Shopping/ProductList.vue';
+    import ShoppingCartDetail from '@/components/Shopping/ShoppingCartDetail.vue';
+    import type { CartDetail } from '@/models/CartDetail';
     export default{
         data(){
             return{
-
+                // details: <Array<CartDetail>>[]
             }
         },
         components:{
-            ProductList
+            ShoppingCartDetail,
         }
     }
 </script>
 
-<template>
-    
-    <ProductList></ProductList>
+<template>  
+
+    <ShoppingCartDetail/>
 
 </template>

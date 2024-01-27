@@ -1,8 +1,8 @@
 <script lang="ts">
     import type { Product } from '@/models/Product';
-    import type { CartDetail } from '@/models/CartDetail';
     import ShoppingCartDetail from '../../components/Shopping/ShoppingCartDetail.vue';
     import ProductCard from './ProductCard.vue';
+import { useCartStore } from '@/stores/cart';
 
     export default{
         data(){
@@ -13,7 +13,7 @@
                     {name:"Girasol", price:1200, productId:3},
                     {name:"POP", price:1200, productId:4},
                 ],
-                details: <Array<CartDetail>>[]
+                  
             }
         },
         components:{
@@ -22,16 +22,8 @@
         },
         methods:{
             onAddProduct(productId:number){
-                const productFinded = this.details.find(d=> d.productId === productId);
-
-                if(productFinded){
-                    productFinded.quantity+=1;
-                }else{
-                    this.details.push({
-                        productId,
-                        quantity:1,
-                    })
-                }
+                const cartStore = useCartStore();
+                cartStore.addProduct(productId);
             }
         },
         mounted(){ // solo se ejecuta al inicio
@@ -48,5 +40,5 @@
                 <!-- @addProduct="onAddProduct(p.productId)"/> manera abreviada -->
         </v-col>
     </v-row>
-    <ShoppingCartDetail :details="details"/>
+    <ShoppingCartDetail details/>
 </template>
