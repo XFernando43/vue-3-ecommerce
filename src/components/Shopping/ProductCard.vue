@@ -1,6 +1,7 @@
 <script lang="ts">
 
     import type { Product } from "@/models/Product";
+import { useCartStore } from "@/stores/cart";
     import type { PropType } from "vue";
 
     export default{
@@ -14,7 +15,9 @@
         methods:{
             AddToCart(){
                 // console.log("Product " + this.product.productId + " Fue agregado al carrito");
-                this.$emit('addProduct') // evento que sirve para enviar un evento desde el hijo al padre
+                // this.$emit('addProduct') // evento que sirve para enviar un evento desde el hijo al padre
+                const cartStore = useCartStore();
+                cartStore.addProduct(this.product);
             }
         }
     }

@@ -1,4 +1,6 @@
+import type { Product } from "./Product";
+
 export interface CartDetail{
-    productId:number;
+    product:Product;
     quantity:number;
 }

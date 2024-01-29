@@ -2,7 +2,7 @@
     import type { Product } from '@/models/Product';
     // import ShoppingCartDetail from '../../components/Shopping/ShoppingCartDetail.vue';
     import ProductCard from './ProductCard.vue';
-    import { useCartStore } from '@/stores/cart';
+    // import { useCartStore } from '@/stores/cart';
 
     export default{
         data(){
@@ -30,10 +30,16 @@
             // ShoppingCartDetail
         },
         methods:{
-            onAddProduct(productId:number){
-                const cartStore = useCartStore();
-                cartStore.addProduct(productId);
-            }
+            // onAddProduct(productId:number){
+            //     // const cartStore = useCartStore();
+            //     const product = this.products.find(p=>p.productId === productId);
+            //     console.log("ACA --> ",product);
+            //     // const product: Product = {
+            //     //     productId:product?.productId,
+            //     //     name:product?.name
+            //     // }
+            //     // cartStore.addProduct(product);
+            // }
         },
         mounted(){ // solo se ejecuta al inicio
             console.log("Mensaje de inicio")
@@ -45,7 +51,8 @@
     <v-row>
         <v-col v-for="p in products" :key="p.productId" cols="3">
             <ProductCard :product="p"
-                v-on:addProduct="onAddProduct(p.productId)"/>
+            />
+                <!-- v-on:addProduct="onAddProduct(p.productId)" -->
                 <!-- @addProduct="onAddProduct(p.productId)"/> manera abreviada -->
         </v-col>
     </v-row>

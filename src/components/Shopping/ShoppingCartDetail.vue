@@ -37,13 +37,13 @@
 
         <v-card-text>
             <v-list v-if="details.length > 0">
-                <v-list-item v-for="d in details" :key="d.productId">
+                <v-list-item v-for="d in details" :key="d.product.productId">
                     <v-list-item-title>
-                        product:  {{ d.productId }}
+                        {{ d.product.name }}
                         (Qty):  {{ d.quantity }}
-                        <v-btn size="x-small" icon="mdi-minus" @Click="decrementQuantity(d.productId)">  </v-btn>
-                        <v-btn size="x-small" icon="mdi-plus" @Click="incrementQuantity(d.productId)">  </v-btn>
-                        <v-btn size="x-small" icon="mdi-delete" @Click="deleteProduct(d.productId)" color="danger">  </v-btn>
+                        <v-btn size="x-small" icon="mdi-minus" @Click="decrementQuantity(d.product.productId)">  </v-btn>
+                        <v-btn size="x-small" icon="mdi-plus" @Click="incrementQuantity(d.product.productId)">  </v-btn>
+                        <v-btn size="x-small" icon="mdi-delete" @Click="deleteProduct(d.product.productId)" color="danger">  </v-btn>
                     </v-list-item-title>
                 
                 </v-list-item>
