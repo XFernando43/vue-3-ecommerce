@@ -4,7 +4,7 @@ import type { Category } from '@/models/Category';
     export default{
         data(){
             return{
-                categories:<Array<Category>>[{
+                categories:[{
                     CategoryId:1,
                     CategoryName:"Tecnologia"
                 },
@@ -20,7 +20,7 @@ import type { Category } from '@/models/Category';
                     CategoryId:2,
                     CategoryName:"Home"
                 },
-                ]
+                ] as Category[]
             }
         }
     }

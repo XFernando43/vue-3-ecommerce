@@ -13,6 +13,9 @@
             const counCartStore = useCartStore();
             return counCartStore.cartItemsCount;
           }
+        },
+        components:{
+          RouterLink
         }
     }
 </script>

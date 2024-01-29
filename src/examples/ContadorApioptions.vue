@@ -1,15 +1,9 @@
 <script lang="ts">
-import CardTemplate from './CardTemplate.vue';
-import Cart from './Cart.vue';
     export default{
         data(){
             return{
                 count:0
             }
-        },
-        components:{
-            CardTemplate,
-            Cart
         },
         methods:{
             increse(){
@@ -34,7 +28,6 @@ import Cart from './Cart.vue';
 
     <h2 v-if="count %2 == 0">es par</h2>
     <h2 v-if="count %2 !== 0">es inpar</h2>
-
 
 
 </template>

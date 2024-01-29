@@ -1,8 +1,5 @@
 <script lang="ts">
-    import type { CartDetail } from '@/models/CartDetail';
     import { useCartStore } from '@/stores/cart';
-    import type { PropType } from 'vue';
-    import { RouterLink } from 'vue-router'
 
     export default{
         // props:{
@@ -40,7 +37,7 @@
 
         <v-card-text>
             <v-list v-if="details.length > 0">
-                <v-list-item v-for="d in details" :value="d.productId">
+                <v-list-item v-for="d in details" :key="d.productId">
                     <v-list-item-title>
                         product:  {{ d.productId }}
                         (Qty):  {{ d.quantity }}

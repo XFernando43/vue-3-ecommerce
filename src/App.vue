@@ -8,7 +8,8 @@
       }
     },
     components:{
-      TopBar
+      TopBar,
+      RouterView
     }
   }
 </script>
