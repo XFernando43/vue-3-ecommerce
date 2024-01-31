@@ -19,6 +19,11 @@ import { useCartStore } from "@/stores/cart";
                 const cartStore = useCartStore();
                 cartStore.addProduct(this.product);
             }
+        },
+        computed:{
+            productImageUrl(){
+                return this.product.imgURL ?? 'https://images.pexels.com/photos/3999071/pexels-photo-3999071.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1';
+            }
         }
     }
 </script>
@@ -30,8 +35,8 @@ import { useCartStore } from "@/stores/cart";
         <v-img
             class="align-end text-white"
             height="200"
-            src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-            cover
+            :src="productImageUrl"
+            max-width="100%"
             >
         </v-img>
         

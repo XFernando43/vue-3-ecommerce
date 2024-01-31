@@ -14,6 +14,11 @@
 
 <template>  
 
-    <ShoppingCartDetail/>
+    <v-row>
+        <v-col cols="8">
+            <ShoppingCartDetail/>
+        </v-col>
+
+    </v-row>
 
 </template>

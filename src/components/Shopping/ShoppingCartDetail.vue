@@ -1,33 +1,20 @@
 <script lang="ts">
     import { useCartStore } from '@/stores/cart';
+    import { mapState } from 'pinia';
+    import ShoppingCartItemVue from './ShoppingCartItem.vue';
 
     export default{
-        // props:{
-        //     details:{
-        //         type:Object as PropType<Array<CartDetail>>,
-        //         required:true,
-        //     }
-        // },
-        computed:{
-            cartStore(){
-                return useCartStore();
-            },
-            details(){
-                return this.cartStore.details;
-            }
-        },
-        methods:{
-            decrementQuantity(productId:number){
-                this.cartStore.decrement(productId);
-            },
-            incrementQuantity(productId:number){
-                this.cartStore.increment(productId);
-            },
-            deleteProduct(productId:number){
-                this.cartStore.deleteProduct(productId);
-            }
-        }
-    }
+    // props:{
+    //     details:{
+    //         type:Object as PropType<Array<CartDetail>>,
+    //         required:true,
+    //     }
+    // },
+    computed: {
+        ...mapState(useCartStore, ['details'])
+    },
+    components: { ShoppingCartItemVue }
+}
 </script>
 
 <template>
@@ -36,32 +23,50 @@
         <v-card-title> Productos agregados al carrito </v-card-title>
 
         <v-card-text>
-            <v-list v-if="details.length > 0">
-                <v-list-item v-for="d in details" :key="d.product.productId">
-                    <v-list-item-title>
-                        {{ d.product.name }}
-                        (Qty):  {{ d.quantity }}
-                        <v-btn size="x-small" icon="mdi-minus" @Click="decrementQuantity(d.product.productId)">  </v-btn>
-                        <v-btn size="x-small" icon="mdi-plus" @Click="incrementQuantity(d.product.productId)">  </v-btn>
-                        <v-btn size="x-small" icon="mdi-delete" @Click="deleteProduct(d.product.productId)" color="danger">  </v-btn>
-                    </v-list-item-title>
-                
-                </v-list-item>
-            </v-list>
 
-            <p v-else>
-                Aun no has agregado items a tu carrito de compras.
-                Has 
+            <v-table v-if="details.length > 0">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Precio</th>
+                        <th>SubTotal</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
 
-                <RouterLink to="/">
-                    <v-btn color="#5865f2">
-                        click aqui
-                    </v-btn>
-                </RouterLink>
+                <tbody>
+                  <ShoppingCartItemVue
+                    v-for="detail in details"
+                    :key = "detail.product.productId"
+                    :detail = "detail">
 
-                para ver los productos disponibles
-            </p>
+                    </ShoppingCartItemVue>
+                </tbody>
+
+            </v-table>
+
+           
         </v-card-text>
                 
     </v-card>
 </template>
+
+
+
+
+
+
+
+<!-- <p v-else>
+    Aun no has agregado items a tu carrito de compras.
+    Has 
+
+    <RouterLink to="/">
+        <v-btn color="#5865f2">
+            click aqui
+        </v-btn>
+    </RouterLink>
+
+    para ver los productos disponibles
+</p> -->
