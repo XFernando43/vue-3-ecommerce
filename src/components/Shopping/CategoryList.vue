@@ -20,11 +20,18 @@ import type { Category } from '@/models/Category';
                     CategoryDescription: "Articulos para el juegos",
                 },
                 {
-                    CategoryId:2,
+                    CategoryId:4,
                     CategoryName:"Home",
                     CategoryDescription: "Productos del hogar",
                 },
                 ] as Category[]
+            }
+        },
+        methods:{
+            selectCategory(categoryId: number){
+                this.$router.push({
+                    name:'category',params:{categoryId:categoryId}
+                })
             }
         }
     }
@@ -35,7 +42,10 @@ import type { Category } from '@/models/Category';
               <v-list rounded="lg">
                 <v-list-item
                   v-for="category in categories"
-                  :key="category.CategoryId" link>
+                  :key="category.CategoryId" 
+                  link
+                  @click="selectCategory(category.CategoryId)"
+                  >
             
                     <v-list-item-title>{{ category.CategoryName }}</v-list-item-title>
                 

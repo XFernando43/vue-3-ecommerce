@@ -50,7 +50,7 @@ import { useCartStore } from "@/stores/cart";
         </v-card-text>
         
         <v-card-actions>
-            <v-btn @click="AddToCart" color="orange-lighten-3">
+            <v-btn @click="AddToCart" color="blue-lighten-2">
                 Add to Cart
             </v-btn>
         </v-card-actions>
