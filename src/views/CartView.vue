@@ -1,5 +1,6 @@
 <script lang="ts">
     import ShoppingCartDetail from '@/components/Shopping/ShoppingCartDetail.vue';
+    import SummaryCart from '@/components/Shopping/SummaryCart.vue';
     export default{
         data(){
             return{
@@ -8,6 +9,7 @@
         },
         components:{
             ShoppingCartDetail,
+            SummaryCart
         }
     }
 </script>
@@ -19,6 +21,9 @@
             <ShoppingCartDetail/>
         </v-col>
 
+        <v-col cols="4">
+           <SummaryCart />
+        </v-col>
     </v-row>
 
 </template>

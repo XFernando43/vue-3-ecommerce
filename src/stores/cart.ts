@@ -12,9 +12,16 @@ export const useCartStore = defineStore('cart',{
             state.details.forEach(detail=>{
                 count+=detail.quantity;
             })
-
             return count;
+        },
+        totalAmount: (state) =>{
+            let sum = 0;
+            state.details.forEach(d=>{
+                sum += d.product.price * d.quantity;
+            })
+            return sum;
         }
+
     },
     actions:{
         addProduct(product: Product){
