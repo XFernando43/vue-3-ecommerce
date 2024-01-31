@@ -3,6 +3,7 @@ export interface Product{
     price:number;
     productId:number;
     imgURL: string;
+    categoryId:number;
 }
 
 

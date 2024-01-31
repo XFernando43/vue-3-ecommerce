@@ -27,7 +27,11 @@
         class="me-4 "
         color="grey-darken-1"
         size="32"
-        ></v-avatar>
+        >
+
+          <v-img src="../../../public/logo1.jpg"/>
+
+        </v-avatar>
         
 
         <RouterLink to="/" custom v-slot="{navigate}">

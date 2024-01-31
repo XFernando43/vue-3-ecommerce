@@ -6,19 +6,23 @@ import type { Category } from '@/models/Category';
             return{
                 categories:[{
                     CategoryId:1,
-                    CategoryName:"Tecnologia"
+                    CategoryName:"Tecnologia",
+                    CategoryDescription: "Productos de tecnologia de toda indole desde gaming hasta oficina y del hogar",
                 },
                 {
                     CategoryId:2,
-                    CategoryName:"Toys"
+                    CategoryName:"Toys",
+                    CategoryDescription: "Productos para el entretinimiento",
                 },
                 {
                     CategoryId:3,
-                    CategoryName:"Gaming"
+                    CategoryName:"Gaming",
+                    CategoryDescription: "Articulos para el juegos",
                 },
                 {
                     CategoryId:2,
-                    CategoryName:"Home"
+                    CategoryName:"Home",
+                    CategoryDescription: "Productos del hogar",
                 },
                 ] as Category[]
             }

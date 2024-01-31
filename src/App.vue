@@ -19,7 +19,6 @@
   <v-app>
     <TopBar></TopBar>
 
-    <!-- <v-main class="bg-grey-lighten-3"> -->
     <v-main class="bg-grey-lighten-6">
       <v-container>
         <RouterView :details="details"/>
