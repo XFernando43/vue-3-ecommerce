@@ -9,7 +9,7 @@ import { mapState } from 'pinia';
             }
         },
         computed:{
-            ...mapState(useCartStore,['totalAmount'])
+            ...mapState(useCartStore,['totalAmount','whatsappLink'])
         }
     }
 </script>
@@ -26,7 +26,7 @@ import { mapState } from 'pinia';
             
         </v-card-subtitle>
         <v-card-text>
-            <v-btn variant="tonal" color="blue-lighten-2">
+            <v-btn :href="whatsappLink" variant="tonal" color="blue-lighten-2">
                 Realizar Pedido
             </v-btn>    
         </v-card-text>

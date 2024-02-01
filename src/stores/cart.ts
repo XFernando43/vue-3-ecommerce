@@ -1,10 +1,13 @@
 import type { CartDetail } from "@/models/CartDetail";
 import type { Product } from "@/models/Product";
 import { defineStore } from "pinia";
+import { useLocalStorage } from "@vueuse/core"
 
 export const useCartStore = defineStore('cart',{
     state:()=>({
-        details: [] as CartDetail[]
+        // details: [] as CartDetail[]
+        details: useLocalStorage<CartDetail[]>('cartDetails',[]),
+
     }),
     getters:{
         cartItemsCount: (state) => {
@@ -20,6 +23,24 @@ export const useCartStore = defineStore('cart',{
                 sum += d.product.price * d.quantity;
             })
             return sum;
+        },
+        whatsAppMessage(state){
+            let message = 'Hola quiero realizar la siguiente compra:\n\n';
+            message+= '_________ \n';
+            state.details.forEach(d=>{
+                message += `Producto: ${d.product.name}\n`;
+                message += `Cantidad: ${d.quantity}\n`;
+                message += `Precio: ${d.quantity * d.product.price}\n`;
+                message += `_______________________\n`;
+            });
+
+            message += `Total a pagar: ${this.totalAmount} \n\n`;
+            message += `Muchas Gracias :3`;
+
+            return encodeURI(message);
+        },
+        whatsappLink(){
+            return 'https://wa.me/51904717840?text=' + this.whatsAppMessage;
         }
 
     },

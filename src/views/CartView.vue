@@ -17,12 +17,12 @@
 <template>  
 
     <v-row>
-        <v-col cols="8">
+        <v-col cols="12" sm="10" md="8" lg="8">
             <ShoppingCartDetail/>
         </v-col>
 
-        <v-col cols="4">
-           <SummaryCart />
+        <v-col cols="12" sm="2" md="4" lg="4">
+            <SummaryCart />
         </v-col>
     </v-row>
 

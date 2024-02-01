@@ -30,16 +30,19 @@ import { useCartStore } from "@/stores/cart";
 
 <template>
 
-    <v-card :title = "product.name">
+    <v-card>
         
         <v-img
             class="align-end text-white"
             height="200"
             :src="productImageUrl"
+            cover
             max-width="100%"
             >
         </v-img>
         
+        <v-card-title>{{ product.name }}</v-card-title>
+
         <v-card-text>
             <p class="mb-3">
                 Este es un texto de descripcion
@@ -52,6 +55,9 @@ import { useCartStore } from "@/stores/cart";
         <v-card-actions>
             <v-btn @click="AddToCart" color="blue-lighten-2">
                 Add to Cart
+            </v-btn>
+            <v-btn color="green-lighten-1">
+                Details
             </v-btn>
         </v-card-actions>
 

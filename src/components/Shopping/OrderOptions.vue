@@ -18,6 +18,9 @@ import { mapActions,mapState } from 'pinia';
 
     <v-list-subheader>Order By </v-list-subheader>
 
+    <!-- se puede condicionar con el arreglo si el length es igual a 0 -->
+    <v-progress-linear indeterminate></v-progress-linear>
+
     <v-list-item link @click="orderByPrice" :active=" order === 'price'">
         <v-list-item-title> Precio Mayor </v-list-item-title>
     </v-list-item> 

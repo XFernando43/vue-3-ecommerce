@@ -32,10 +32,10 @@
 <template>
   
     <v-row>
-        <v-col cols="2">
+        <v-col cols="12" sm="3" md="2" lg="2">
             <CategoryList/>
         </v-col>
-        <v-col cols="10">
+        <v-col cols="12" sm="9" md="10" lg="10">
             <ProductList></ProductList>
         </v-col>
     </v-row>
