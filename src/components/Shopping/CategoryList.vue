@@ -1,31 +1,10 @@
 <script lang="ts">
-    import type { Category } from '@/models/Category';
+    import { useCategoryStore } from '@/stores/category';
     import OrderOptions from './OrderOptions.vue';
+    import { mapState } from 'pinia';
     export default{
-        data(){
-            return{
-                categories:[{
-                    CategoryId:1,
-                    CategoryName:"Tecnologia",
-                    CategoryDescription: "Productos de tecnologia de toda indole desde gaming hasta oficina y del hogar",
-                },
-                {
-                    CategoryId:2,
-                    CategoryName:"Toys",
-                    CategoryDescription: "Productos para el entretinimiento",
-                },
-                {
-                    CategoryId:3,
-                    CategoryName:"Gaming",
-                    CategoryDescription: "Articulos para el juegos",
-                },
-                {
-                    CategoryId:4,
-                    CategoryName:"Home",
-                    CategoryDescription: "Productos del hogar",
-                },
-                ] as Category[]
-            }
+        computed:{
+            ...mapState(useCategoryStore,['_categories'])
         },
         methods:{
             clearCategory(){
@@ -48,7 +27,7 @@
 <template>
     <v-sheet rounded="lg">
               <v-list rounded="lg">
-                <v-list-item v-for="category in categories" :key="category.CategoryId" link @click="goToCategory(category.CategoryId)" :active="$route.name==='category' && Number($route.params.categoryId) === category.CategoryId">       
+                <v-list-item v-for="category in _categories" :key="category.CategoryId" link @click="goToCategory(category.CategoryId)" :active="$route.name==='category' && Number($route.params.categoryId) === category.CategoryId">       
                     <v-list-item-title>{{ category.CategoryName }}</v-list-item-title>
                 </v-list-item>
 
